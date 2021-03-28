@@ -88,7 +88,7 @@ class TestTelloStreamHandler: ChannelOutboundHandler {
     typealias OutboundIn = AddressedEnvelope<ByteBuffer>
 }
 
-class TelloSimulator {
+public class TelloSimulator {
     let eventGroup: MultiThreadedEventLoopGroup
     let bootstrap: DatagramBootstrap
     var channel: Channel?
@@ -98,7 +98,7 @@ class TelloSimulator {
     let streamAddr = "127.0.0.1"
     let streamPort = 11111
 
-    init(addr: String, port: Int) {
+    public init(addr: String, port: Int) {
         self.addr = addr
         self.port = port
         eventGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
@@ -115,7 +115,7 @@ class TelloSimulator {
         }
     }
 
-    var cmdResponse: String {
+    public var cmdResponse: String {
         get {
             let handler = try! channel!.pipeline.handler(type: TestTelloCommandHandler.self).wait()
             return handler.cmdResponse
@@ -127,7 +127,7 @@ class TelloSimulator {
         }
     }
 
-    var failoverResponse: String {
+    public var failoverResponse: String {
         get {
             let handler = try! channel!.pipeline.handler(type: TestTelloCommandHandler.self).wait()
             return handler.failoverResponse
@@ -139,7 +139,7 @@ class TelloSimulator {
         }
     }
 
-    func start() throws {
+    public func start() throws {
         do {
             channel = try bootstrap.bind(host: addr, port: port).wait()
         } catch {
@@ -148,12 +148,12 @@ class TelloSimulator {
         }
     }
 
-    func stop() {
+    public func stop() {
         channel!.close(mode: .all, promise: nil)
         try! eventGroup.syncShutdownGracefully()
     }
 
-    func sendStream() {
+    public func sendStream() {
         let socketAddr = try! SocketAddress(ipAddress: streamAddr, port: streamPort)
         var buffer = channel!.allocator.buffer(capacity: 128)
         buffer.writeString("HelloThisIsVideoStreamTest")

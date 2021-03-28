@@ -1,7 +1,7 @@
-# TelloSwift  [![Build Status](https://travis-ci.org/liuxuan30/TelloSwift.svg?branch=master)](https://travis-ci.org/liuxuan30/TelloSwift) ![License](https://img.shields.io/github/license/liuxuan30/TelloSwift) [![Codecov](https://img.shields.io/codecov/c/github/liuxuan30/TelloSwift?color=%2352CC0F)](https://codecov.io/gh/liuxuan30/TelloSwift)
+# TelloSwift [![Swift](https://github.com/JASS-2021/TelloSwift/actions/workflows/swift.yml/badge.svg)](https://github.com/JASS-2021/TelloSwift/actions/workflows/swift.yml)
 A DJI Tello(plus EDU) Swift Framework, powered by Apple's [SwiftNIO](https://github.com/apple/swift-nio)
 
-![Logo](Resources/TelloSwift.png)
+![Logo](.github/Resources/TelloSwift.png)
 
 There are already a lot of Tello frameworks in Python, but I don't see a decent one for Apple's platform, especially in Swift. 
 

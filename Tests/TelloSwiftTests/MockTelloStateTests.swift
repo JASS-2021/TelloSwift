@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import TelloSwift
+import TelloSimulator
 
 /// Tests started with Mock is using local UDP server,
 /// while tests with Tello is against real Tello drone.
